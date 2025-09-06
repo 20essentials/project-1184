@@ -1,0 +1,45 @@
+---
+import Background from '@components/sections/Background.astro'
+---
+
+<!doctype html>
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width' />
+		<link rel='icon' type='image/svg+xml' href='/favicon.webp' />
+		<title>Stars</title>
+	</head>
+	<body>
+		<Background />
+	</body>
+</html>
+
+<style>
+	html {
+		font-family: 'Montserrat', system-ui, sans-serif;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		background: #000;
+	}
+</style>
+
+<script>
+	// detect if url has query string ticket
+	const urlParams = new URLSearchParams(window.location.search)
+	const ticket = urlParams.get('ticket')
+	const sessionTicket = sessionStorage.getItem('ticket')
+
+	const scroll = window.location.search.includes('?ticket')
+
+	setTimeout(() => {
+		// scroll to ticket hash
+		if (scroll || ticket || sessionTicket) {
+			sessionStorage.removeItem('ticket')
+			window.location.hash = '#ticket'
+			document.getElementById('ticket')?.scrollIntoView({ behavior: 'auto' })
+		}
+	}, 500)
+</script>
