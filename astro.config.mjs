@@ -6,5 +6,8 @@ import preact from '@astrojs/preact'
 export default defineConfig({
 	// output: 'server',
 	// adapter: vercel(),
+   build: {
+    inlineStylesheets: 'always'
+  },
 	integrations: [tailwind(), preact()]
 })

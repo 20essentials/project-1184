@@ -9,7 +9,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "pnpm gh-pages -d dist/"
   },
   "dependencies": {
     "@astrojs/preact": "3.3.0",
